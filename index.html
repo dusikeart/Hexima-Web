@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>HEXIMA HOMEPAGE</title>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style2.css">
+    <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100;600&family=Manrope:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+	<div id="custom-cursor"></div>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="logo.jpg" alt="HEXIMA logo" href="index.html"/>
+                <span>HEXIMA</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="active">DOMOV</a></li>
+                    <li><a href="HEXIMAI.html">HEXIMA AI</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+  <div class="hero-content">
+    <h1>HEXIMA WA1-TCH</h1>
+    <h2>Model One</h2>
+    <div class="divider"></div>
+
+    <ul class="hero-list">
+      <li>Jedinečný hexagonový dizajn</li>
+      <li>Offline AI asistent</li>
+      <li>Inteligentné zdravotné prehľady</li>
+    </ul>
+
+    <div class="divider2"></div>
+
+    <p class="hero-description">
+      <b>HEXIMA WA1-TCH</b> nie sú len ďalšie smart hodinky. Vďaka ikonickému šesťuholníkovému tvaru a
+      zabudovanému offline AI sa stávajú tvojím osobným spoločníkom. Od sledovania spánku a dennej
+      aktivity až po inteligentné, súkromné odporúčania, navrhnuté tak, aby žili spolu s tebou, nie
+      proti tebe.
+    </p>
+
+    <button class="hero-btn" id="discover-btn">Objav HEXIMA AI</button>
+  </div>
+  
+   <div class="hero-images">
+    <div class="vertical-line"></div>
+    <img src="1s.png" alt="Layer 1" class="img-layer img1">
+    <img src="2s.png" alt="Layer 2" class="img-layer img2">
+    <img src="3s.png" alt="Layer 3" class="img-layer img3">
+  </div>
+</section>
+
+<div class="middivider">
+    <img src="logowhite.png" alt="logowhite">
+</div>
+
+<div class="section2">
+<h1>TECHNICKÉ ŠPECIFIKÁCIE</h1>
+   <div class="second-image">
+    <img src="underimg.png" alt="Section 2" class="img-layer img4">
+    </div>
+</div>
+
+    <script>
+window.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('loaded');
+});
+
+const cursor = document.getElementById('custom-cursor');
+
+window.addEventListener("mousemove", (e) => {
+  const mouseX = e.clientX;
+  const mouseY = e.clientY;
+
+  // 1. POHYB KURZORA (Toto ti chýbalo)
+  cursor.style.left = mouseX + 'px';
+  cursor.style.top = mouseY + 'px';
+
+  // 2. PARALLAX EFEKT PRE OBRÁZKY
+  // Používame stred obrazovky ako nulový bod pre prirodzenejší pohyb
+  const moveX = (mouseX - window.innerWidth / 2);
+  const moveY = (mouseY - window.innerHeight / 2);
+
+  document.querySelector(".img1").style.transform = `translate(${moveX * 0.01}px, ${moveY * 0.01}px)`;
+  document.querySelector(".img2").style.transform = `translate(${moveX * 0.02}px, ${moveY * 0.02}px)`;
+  document.querySelector(".img3").style.transform = `translate(${moveX * 0.03}px, ${moveY * 0.03}px)`;
+});
+
+// 3. VYFARBENIE KURZORA PRI KLIKNUTÍ
+window.addEventListener("mousedown", () => cursor.classList.add("active"));
+window.addEventListener("mouseup", () => cursor.classList.remove("active"));
+
+// TVOJ PÔVODNÝ KÓD PRE ČASTICE A TLAČIDLO
+document.getElementById("discover-btn").addEventListener("click", function(e) {
+  const cursorX = e.clientX + window.scrollX;
+  const cursorY = e.clientY + window.scrollY;
+
+  for (let i = 0; i < 30; i++) {
+    const particle = document.createElement("span");
+    particle.classList.add("particle");
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = 80 + Math.random() * 60;
+    const tx = Math.cos(angle) * distance + "px";
+    const ty = Math.sin(angle) * distance + "px";
+
+    particle.style.setProperty("--tx", tx);
+    particle.style.setProperty("--ty", ty);
+    particle.style.position = "absolute";
+    particle.style.left = cursorX + "px";
+    particle.style.top = cursorY + "px";
+
+    document.body.appendChild(particle);
+    setTimeout(() => particle.remove(), 1000);
+  }
+
+  document.body.classList.add("fade-out");
+  setTimeout(() => {
+    window.location.href = "HEXIMAI.html";
+  }, 900);
+});
+</script>
+  </body>
+</html>
+
