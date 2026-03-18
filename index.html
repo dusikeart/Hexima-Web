@@ -79,12 +79,9 @@ window.addEventListener("mousemove", (e) => {
   const mouseX = e.clientX;
   const mouseY = e.clientY;
 
-  // 1. POHYB KURZORA (Toto ti chýbalo)
   cursor.style.left = mouseX + 'px';
   cursor.style.top = mouseY + 'px';
 
-  // 2. PARALLAX EFEKT PRE OBRÁZKY
-  // Používame stred obrazovky ako nulový bod pre prirodzenejší pohyb
   const moveX = (mouseX - window.innerWidth / 2);
   const moveY = (mouseY - window.innerHeight / 2);
 
@@ -93,11 +90,9 @@ window.addEventListener("mousemove", (e) => {
   document.querySelector(".img3").style.transform = `translate(${moveX * 0.03}px, ${moveY * 0.03}px)`;
 });
 
-// 3. VYFARBENIE KURZORA PRI KLIKNUTÍ
 window.addEventListener("mousedown", () => cursor.classList.add("active"));
 window.addEventListener("mouseup", () => cursor.classList.remove("active"));
 
-// TVOJ PÔVODNÝ KÓD PRE ČASTICE A TLAČIDLO
 document.getElementById("discover-btn").addEventListener("click", function(e) {
   const cursorX = e.clientX + window.scrollX;
   const cursorY = e.clientY + window.scrollY;
