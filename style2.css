@@ -1,1116 +1,552 @@
 * {
-
   margin: 0;
-
   padding: 0;
-
-  box-sizing: border-box; /* zabranuje preteceniu elementov */
-
+  box-sizing: border-box;
 }
-
-
 
 body {
-
     margin: 0;
-
     font-family: "Manrope", sans-serif;
-
     background-color: #fff;
-
     color: #2A2B2A;
-
     opacity: 0;
-
     transition: opacity 0.8s ease;
-
 }
-
-
 
 body.loaded {
-
   opacity: 1;
-
 }
-
-
 
 body, a, button {
-
   cursor: none !important;
-
 }
-
-
-
-/* Štýl nášho krúžku */
 
 #custom-cursor {
-
   position: fixed;
-
   top: 0;
-
   left: 0;
-
   width: 20px;
-
   height: 20px;
-
-  border: 2px solid #000; /* Ak máš tmavé pozadie, zmeň na #fff */
-
+  border: 2px solid #000; 
   border-radius: 50%;
-
-  pointer-events: none; /* Aby si mohol klikať "cez" krúžok */
-
+  pointer-events: none; 
   transform: translate(-50%, -50%);
-
   transition: background-color 0.2s, transform 0.1s ease-out;
-
   z-index: 9999;
-
 }
-
-
-
-/* Vyfarbenie pri kliknutí */
 
 #custom-cursor.active {
-
-  background-color: #000; /* Rovnaká farba ako border */
-
+  background-color: #000; 
   transform: translate(-50%, -50%) scale(0.9);
-
 }
-
-
-
-
-
-
 
 .particle {
-
   position: absolute;     
-
   width: 8px;
-
   height: 8px;
-
   background: white;
-
   pointer-events: none;
-
   border-radius: 0;
-
-  transform: translate(-50%, -50%); /* stred partiklu na súradniciach */
-
+  transform: translate(-50%, -50%); 
   will-change: transform, opacity;
-
   animation: particle-move 1s ease-out forwards;
-
   z-index: 9999;
-
 }
-
-
 
 @keyframes particle-move {
-
   to {
-
     transform: translate(calc(var(--tx) - 50%), calc(var(--ty) - 50%)) scale(0);
-
     opacity: 0;
-
   }
-
 }
-
-
-
-  /* Fade-out efekt pre celý obsah */
 
   body.fade-out {
-
     opacity: 0;
-
     transition: opacity 0.8s ease;
-
     pointer-events: none;
-
   }
 
-
-
 .header {
-
     width: 100%;
-
     padding: 1.5rem 3rem;
-
 }
-
-
 
 .container {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
 }
-
-
 
 .logo {
-
     display: flex;
-
     align-items: center;
-
     gap: 1rem;
-
     font-family: "MuseoModerno", sans-serif;
-
     font-weight: 600;
-
     font-size: 2rem;
-
     letter-spacing: 1px;
-
 }
-
-
 
 .logo img {
-
   max-width: 90px;
-
   height: auto;
-
 }
-
-
 
 .nav ul {
-
     list-style: none;
-
     display: flex;
-
     gap: 3rem;
-
     font-size: 1rem;
-
     margin: 0;
-
     padding: 0;
-
 }
-
-
 
 .nav a {
-
     text-decoration: none;
-
     color: #2A2B2A;
-
     font-weight: 500;
-
     transition: all 0.5s ease;
-
     border-top: 2px solid white;
-
 }
-
-
 
 .nav a:hover {
-
     color: #2A2B2A;
-
     border-top: 2px solid #2A2B2A;
-
 }
-
-
 
 .nav a.active {
-
     font-weight: 800;
-
     border-bottom: 2px solid #2A2B2A;
-
 }
-
-
 
 .hero {
-
   display: flex;
-
   align-items: center;
-
   min-height: 90vh;
-
   padding-left: 4.25rem;
-
 }
-
-
 
 .hero-content {
-
   max-width: 580px;
-
 }
-
-
 
 .hero h1 {
-
   font-family: "MuseoModerno", sans-serif;
-
-  font-weight: 600; /* SemiBold */
-
+  font-weight: 600;
   font-size: 3.5rem;
-
   line-height: 1;
-
   letter-spacing: 1px;
-
   margin-bottom: -0.3rem;
-
 }
-
-
 
 .hero h2 {
-
   font-family: "Manrope", sans-serif;
-
   font-weight: 10;
-
   font-size: 1.3rem;
-
   margin-bottom: 2rem;
-
 }
-
-
 
 .divider {
-
   width: 560px;
-
   height: 1.25px;
-
   background-color: #2A2B2A;
-
   margin-bottom: 1.8rem;
-
 }
-
-
 
 .divider2 {
-
   width: 700px;
-
   height: 1.25px;
-
   background-color: #2A2B2A;
-
   margin-bottom: 1.8rem;
-
 }
-
-
 
 .hero-list {
-
   list-style: none;
-
   font-family: "Manrope", sans-serif;
-
-  font-weight: 300; /* Regular */
-
+  font-weight: 300;
   font-size: 1.5rem;
-
   line-height: 1.8;
-
   color: #2A2B2A;
-
   margin-bottom: 1.8rem;
-
 }
-
-
 
 .hero-list li {
-
   position: relative;
-
   padding-left: 2.5rem;
-
 }
-
-
 
 .hero-list li::before {
-
   content: "";
-
   position: absolute;
-
   left: 0;
-
   top: 50%;
-
   transform: translateY(-50%);
-
   width: 25px;
-
   height: 25px;
-
   background-image: url("icon.png");
-
   background-size: contain;
-
   background-repeat: no-repeat;
-
   background-position: center;
-
 }
-
-
 
 .hero-description {
-
   font-family: "Manrope", sans-serif;
-
-  font-weight: 300; /* Light */
-
+  font-weight: 300;
   font-size: 1.25rem;
-
   line-height: 1.7;
-
   color: #2A2B2A;
-
   margin-bottom: 2.4rem;
-
   max-width: 580px;
-
 }
-
-
 
 .hero-description b {
-
      font-weight: 600;
-
 }
-
-
 
 .hero-btn {
-
   position: relative;
-
   font-family: "Manrope", sans-serif;
-
-  font-weight: 500; /* Bold */
-
+  font-weight: 500;
   font-size: 1.25rem;
-
   background: linear-gradient(90deg, #2A2B2A, #4D4D4D);
-
   box-shadow: -3px 4px 4px #A5A5A5;
-
   color: white;
-
   border: none;
-
   padding: 1rem 2.4rem;
-
   border-radius: 999px;
-
   cursor: pointer;
-
   transition: color 0.5s ease, transform 0.5s;
-
   letter-spacing: 0.5px;
-
 }
-
-
 
 .hero-btn::after {
-
   content: "";
-
   position: absolute;
-
   top: -6px;  
-
   left: -6px;
-
   right: -6px;
-
   bottom: -6px;
-
   border: 2px solid #2A2B2A; 
-
   border-radius: 999px;     
-
   z-index: -1;               
-
 }
 
-
-
 .hero-btn:hover {
-
   background: white;
-
   color: #2A2B2A;
-
   transform: translateY(-3px);
-
   background: white;
-
 }
 
 .hero-images { 
   position: relative; 
   margin-left: auto; 
-
   width: 100%; 
-
-  /* KĽÚČOVÁ ZMENA: 
-     60rem (cca 960px) dovolí obrázku byť na veľkom monitore obrovský (viac ako 2x toľko čo predtým).
-     75vh znamená, že bez ohľadu na šírku obrazovky si obrázok nikdy nevezme viac ako 75% jej VÝŠKY. */
   max-width: min(60rem, 72vh); 
-
   aspect-ratio: 1 / 1; 
-
   display: flex; 
   align-items: center; 
   justify-content: center; 
   overflow: visible; 
-  
   transform: translateX(-5vw); 
 }
 
-
-
 .hero-images .vertical-line {
-
   position: absolute;
-
-  right: -7%;                /* distance relative to container width */
-
+  right: -7%;              
   top: -3%;
-
   width: 2px;
-
   height: 105%;
-
   background-color: #2A2B2A;
-
   z-index: 0;
-
 }
-
-
 
 .img-layer {
-
   position: absolute;
-
   transition: transform 0.6s ease, opacity 0.6s ease;
-
 }
-
-
-
-/* Using clamp() so translations scale with viewport */
 
 .img1 {
-
   z-index: 1;
-
   width: 150%;
-
   height: auto;
-
   transform: translate(0, 0);
-
 }
-
-
 
 .img2 {
-
   z-index: 2;
-
   width: 110%;
-
   height: auto;
-
   transform: translate(clamp(15px, 4%, 25px), clamp(-15px, -3%, -20px));
-
 }
-
-
 
 .img3 {
-
   z-index: 3;
-
   width: 110%;
-
   height: auto;
-
   transform: translate(clamp(30px, 8%, 50px), clamp(-30px, -5%, -40px));
-
 }
-
-
 
 .middivider {
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     width: 100%;
-
     height: 5.5rem;
-
     background: #2A2B2A;
-
     margin-top: 30px 0;
-
 }
-
-
 
 .middivider img {
-
     height: 60%
-
 }
-
-
 
 .section2 {
-
     display: flex;
-
     justify-content: flex-start;
-
     align-items: center;
-
     width: 100%;
-
     min-height: 60vh;
-
-    padding: 4rem 2rem 0.3rem; /* ?? ešte menšia medzera dole */
-
+    padding: 4rem 2rem 0.3rem;
     background: #242424;
-
     box-shadow: inset 0 8px 10px -8px rgba(0, 0, 0, 0.7);
-
     overflow: hidden;
-
     flex-direction: column;
-
     position: relative;
-
 }
-
-
 
 .second-image {
-
     width: 100%;
-
-    padding-top: 70px; /* ?? jemne menšia medzera nad obrázkom */
-
+    padding-top: 70px;
     max-width: 2300px;
-
     position: relative;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     margin: 0 auto;
-
 }
-
-
 
 .second-image img.img4 {
-
     position: relative;
-
     width: 100%;
-
     max-width: 2300px;
-
     height: auto;
-
     display: block;
-
 }
-
-
 
 .section2 h1 {
-
   font-family: "MuseoModerno", sans-serif;
-
   font-weight: 600;
-
   font-size: 4rem;
-
   line-height: 1;
-
   letter-spacing: 1px;
-
-  margin: 9rem 0 -10.7rem 0; /* ??väčšia medzera hore, 2rem dole */
-
+  margin: 9rem 0 -10.7rem 0;
   color: white;
-
   text-align: center;
-
 }
-
-
 
 .particle {
-
   position: absolute;
-
   width: 8px;
-
   height: 8px;
-
   background-color: #2A2B2A;
-
   border-radius: 50%;
-
   pointer-events: none;
-
   opacity: 0.9;
-
   animation: particle-move 1s ease-out forwards;
-
 }
-
-
-
-/* Animation for the particle */
 
 @keyframes particle-move {
-
   0% {
-
     transform: translate(0, 0) scale(1);
-
     opacity: 1;
-
   }
-
   100% {
-
     transform: translate(var(--tx), var(--ty)) scale(0);
-
     opacity: 0;
-
   }
-
 }
 
-
-
-
-
-
-
-
-
-
-
 .hero-ai {
-
- display: flex;
-
+  display: flex;
   align-items: center;
-
   justify-content: flex-start;
-
   min-height: 25vh;
-
   padding-left: 4.25rem;
-
   margin-top: -1rem;
-
 }
 
 
 
 .hero-ai-content {
-
   max-width: 1000px;
-
 }
-
-
 
 .hero-ai h1 {
-
   font-family: "MuseoModerno", sans-serif;
-
-  font-weight: 600; /* SemiBold */
-
+  font-weight: 600;
   font-size: 4.5rem;
-
   line-height: 1;
-
   letter-spacing: 1px;
-
   margin-bottom: -0.3rem;
-
 }
 
-
-
 .hero-ai h2 {
-
   font-family: "Manrope", sans-serif;
-
   font-weight: 10;
-
   font-size: 2.3rem;
-
   margin-bottom: 2rem;
-
   margin-top: 1rem;
-
 }
 
 
 
 .divider3 {
-
   width: 1360px;
-
   height: 1.25px;
-
   background-color: #2A2B2A;
-
   margin: 40px 0 40px;
-
 }
-
-
 
 .gifwatch {
-
-width: 100%;
-
+ width: 100%;
  display: flex;
-
  margin-top: 10px;
-
 }
-
-
 
 .gifwatch img {
-
-width: 100%;
-
+  width: 100%;
   will-change: transform;
-
-  transition: none !important; /* Animáciu teraz riadi čistý JS pre maximálnu plynulosť */
-
+  transition: none !important;
 }
-
-
 
 .divider4 {
-
   display: flex;
-
-  width: 116rem;           /* Kept as is */
-
-  height: 1.25px;          /* Kept as is */
-
+  width: 116rem;         
+  height: 1.25px;         
   background-color: #2A2B2A;
-
-  margin: 50px auto 40px;  /* Top 50px, Centered sides, Bottom 40px */
-
+  margin: 50px auto 40px;  
 }
-
-
 
 .section3 {
-
   position: relative;
-
   text-align: center;
-
   color: white;
-
   font-family: "Poppins", sans-serif;
-
 }
-
-
 
 .section3 h1 {
-
   margin-bottom: 2rem;
-
 }
-
-
 
 .third-image {
-
   position: relative;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   height: 50rem;
-
 }
-
-
-
-
 
 .img-layer2 {
-
   width: 100%;
-
   opacity: 0.3;
-
   display: block;
-
   margin: 0 auto;
-
   margin-bottom: 3.5rem;
-
 }
-
-
 
 .overlay-text {
-
   position: absolute;
-
   top: 50%;
-
   left: 50%;
-
   transform: translate(-50%, -50%);
-
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   width: 80%;
-
   text-align: center;
-
   gap: 8rem;
-
   transition: transform 0.3s ease, filter 0.3s ease;
-
 }
-
-
 
 .col {
-
   flex: 1;
-
   margin: 0 0.5rem;
-
   transition: transform 0.3s ease, filter 0.3s ease;
-
 }
-
-
 
 .col:hover {
-
   transform: scale(1.1);
-
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-
 }
-
-
 
 .col h2 {
-
   font-size: 4rem;
-
   font-weight: 600;
-
   margin-bottom: 1rem;
-
   color: #2A2B2A;
-
   font-family: "MuseoModerno", sans-serif;
-
   transition: transform 0.3s ease;
-
 }
-
-
-
-
 
 .col p {
-
   font-size: 1.5rem;
-
   line-height: 1.6;
-
   font-weight: 100;
-
   color: #2A2B2A;
-
   font-family: "Manrope";
-
   transition: color 0.3s ease;
-
 }
-
-
 
 .ai-btn-container {
-
   display: flex;
-
   justify-content: center; 
-
   align-items: center;    
-
   height: 100%;           
-
 }
-
-
 
 .ai-btn-container p {
-
  font-size: 1.3rem;
-
   line-height: 1.6;
-
   font-weight: 100;
-
   color: #2A2B2A;
-
   font-family: "Manrope";
-
   transition: color 0.3s ease;
-
   margin-top: -25px;
-
   margin-bottom: 50px;
-
 }
-
-
 
 .ai-btn {
-
   position: relative;
-
   font-family: "Manrope", sans-serif;
-
   font-weight: 500; /* Bold */
-
   font-size: 1rem;
-
   background: linear-gradient(90deg, #2A2B2A, #4D4D4D);
-
   box-shadow: -3px 4px 4px #A5A5A5;
-
   color: white;
-
   border: none;
-
   padding: 1rem 2.4rem;
-
   border-radius: 999px;
-
   cursor: pointer;
-
   transition: color 0.5s ease, transform 0.5s;
-
   letter-spacing: 0.5px;
-
 }
-
-
 
 .ai-btn::after {
-
   content: "";
-
   position: absolute;
-
   top: -6px;  
-
   left: -6px;
-
   right: -6px;
-
   bottom: -6px;
-
   border: 2px solid #2A2B2A; 
-
   border-radius: 999px;     
-
   z-index: -1;               
-
 }
 
-
-
 .ai-btn:hover {
-
   background: white;
-
   color: #2A2B2A;
-
   transform: translateY(-3px);
-
   background: white;
-
 }
