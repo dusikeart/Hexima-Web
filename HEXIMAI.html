@@ -30,6 +30,10 @@
     <section class="spline-wrapper">
       <div class="spline-container" id="spline-container">
         
+        <div id="spline-loader" class="spline-loader">
+          NÁČÍTAVANIE<span class="loading-dots"></span>
+        </div>
+
         <spline-viewer url="https://prod.spline.design/CqA6cCA7mquNzJuf/scene.splinecode"></spline-viewer>
         
         <div class="hide-logo"></div>
@@ -45,7 +49,7 @@
           </div>
           <span class="hud-label">SYS.DAT // 01.INIT</span>
           <div class="hud-text">Budúcnosť v každej hrane</div>
-		  <div class="hud-text2">Predstavujeme HEXIMA AI – revolučnú inteligenciu zakomponovanú priamo do ikonického hexagonálneho tela vašich hodiniek. Na rozdiel od bežných zariadení, HEXIMA nepotrebuje cloud ani pripojenie na internet.</div>
+          <div class="hud-text2">Predstavujeme HEXIMA AI – revolučnú inteligenciu zakomponovanú priamo do ikonického hexagonálneho tela vašich hodiniek. Na rozdiel od bežných zariadení, HEXIMA nepotrebuje cloud ani pripojenie na internet.</div>
         </div>
 
         <div class="spline-ui tech-hud text-right" id="ui-2">
@@ -54,7 +58,7 @@
           </div>
           <span class="hud-label">TRGT.LCK // 02.SYNC</span>
           <div class="hud-text">Váš súkromný digitálny trezor</div>
-		  <div class="hud-text2">Keďže HEXIMA AI funguje úplne bez cloudu, vaše hodinky nie sú len terminálom, ale výkonným serverom na vašom zápästí. Integrované vysokorýchlostné úložisko je navrhnuté tak, aby uchovávalo celé „vedomie“ vašej AI v bezpečí hexagonálneho rámu.</div>
+          <div class="hud-text2">Keďže HEXIMA AI funguje úplne bez cloudu, vaše hodinky nie sú len terminálom, ale výkonným serverom na vašom zápästí. Integrované vysokorýchlostné úložisko je navrhnuté tak, aby uchovávalo celé „vedomie“ vašej AI v bezpečí hexagonálneho rámu.</div>
         </div>
 
         <div class="spline-ui tech-hud text-left" id="ui-3">
@@ -63,7 +67,7 @@
           </div>
           <span class="hud-label">ANLYZ.RUN // 03.PROC</span>
           <div class="hud-text">Akustické zrkadlo vášho vnútra</div>
-		  <div class="hud-text2">Zatiaľ čo iní len merajú tep, HEXIMA počúva "symfóniu" vášho tela. Vďaka technológii Vibrational Echo-Scanning (VES) využívajú hodinky svoje hexagonálne senzory na vysielanie mikro-vibrácií priamo do vašej kostrovej sústavy.</div>
+          <div class="hud-text2">Zatiaľ čo iní len merajú tep, HEXIMA počúva "symfóniu" vášho tela. Vďaka technológii Vibrational Echo-Scanning (VES) využívajú hodinky svoje hexagonálne senzory na vysielanie mikro-vibrácií priamo do vašej kostrovej sústavy.</div>
         </div>
 
         <div class="spline-ui center-img clean-logo" id="ui-4">
@@ -221,6 +225,20 @@
         setTimeout(() => {
           window.location.href = "index.html";
         }, 900);
+      });
+    }
+
+    const splineViewer = document.querySelector('spline-viewer');
+    const splineLoader = document.getElementById('spline-loader');
+
+    if (splineViewer && splineLoader) {
+      splineViewer.addEventListener('load', () => {
+        splineLoader.style.opacity = '0';
+        splineLoader.style.visibility = 'hidden';
+        
+        setTimeout(() => {
+          splineLoader.style.display = 'none';
+        }, 600);
       });
     }
     </script>
