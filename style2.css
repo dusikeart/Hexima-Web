@@ -5,7 +5,6 @@
 }
 
 html, body {
-  /* KĽÚČOVÁ ZMENA: Zabráni scrollovaniu doprava kvôli pretekaniu obrázkov */
   overflow-x: hidden; 
 }
 
@@ -26,7 +25,6 @@ body, a, button {
   cursor: none !important;
 }
 
-/* Štýl nášho krúžku */
 #custom-cursor {
   position: fixed;
   top: 0;
@@ -41,7 +39,6 @@ body, a, button {
   z-index: 9999;
 }
 
-/* Vyfarbenie pri kliknutí */
 #custom-cursor.active {
   background-color: #000;
   transform: translate(-50%, -50%) scale(0.9);
@@ -51,7 +48,7 @@ body, a, button {
   position: absolute;     
   width: 8px;
   height: 8px;
-  background: white;
+  background: #2A2B2A;
   pointer-events: none;
   border-radius: 0;
   transform: translate(-50%, -50%);
@@ -67,7 +64,6 @@ body, a, button {
   }
 }
 
-/* Fade-out efekt pre celý obsah */
 body.fade-out {
   opacity: 0;
   transition: opacity 0.8s ease;
@@ -130,7 +126,7 @@ body.fade-out {
 .hero {
   display: flex;
   align-items: center;
-  min-height: 90vh;
+  min-height: 100vh;
   padding-left: 4.25rem;
 }
 
@@ -155,7 +151,6 @@ body.fade-out {
   margin-bottom: 2rem;
 }
 
-/* KĽÚČOVÁ ZMENA: Percentuálna šírka miesto fixnej */
 .divider {
   width: 100%;
   max-width: 560px;
@@ -357,50 +352,42 @@ body.fade-out {
   text-align: center;
 }
 
-/* Ostatný kód pre sekciu 3 a AI zostáva zachovaný... */
-
-/* ======================================================== */
-/* --- RESPONZIVITA (Nové pravidlá pre prispôsobenie) --- */
-/* ======================================================== */
-
-/* Notebooky a 125% priblíženie (do 1400px šírky obrazovky) */
 @media (max-width: 1400px) {
   .hero {
     padding-left: 2rem;
   }
   .hero h1 {
-    font-size: 2.8rem; /* Jemne zmenšený nadpis */
+    font-size: 2.8rem;
   }
   .hero-description {
-    font-size: 1.1rem; /* Jemne zmenšený text */
+    font-size: 1.1rem; 
   }
   .hero-list {
     font-size: 1.3rem;
   }
   .hero-images {
-    max-width: min(45rem, 60vh); /* Trochu menší kontajner na obrázok */
+    max-width: min(45rem, 60vh);
     transform: translateX(-2vw);
   }
 }
 
-/* Tablety a mobily (do 992px) */
 @media (max-width: 992px) {
   .hero {
-    flex-direction: column; /* Hodí obrázok pod text */
+    flex-direction: column; 
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     padding-top: 4rem;
-    text-align: center; /* Vycentruje text na mobile */
+    text-align: center; 
   }
   .hero-content {
     margin: 0 auto;
   }
   .divider, .divider2 {
-    margin: 1.5rem auto; /* Vycentruje deliace čiary */
+    margin: 1.5rem auto;
   }
   .hero-list li {
     text-align: left;
-    display: inline-block; /* Aby odrážky nevyzerali na stred divne */
+    display: inline-block; 
   }
   .hero-images {
     transform: translateX(0);
@@ -408,13 +395,13 @@ body.fade-out {
     margin-left: 0;
   }
   .hero-images .vertical-line {
-    display: none; /* Na mobile táto čiara nemá zmysel */
+    display: none; 
   }
   .nav ul {
-    gap: 1.5rem; /* Menšie medzery v menu */
+    gap: 1.5rem; 
   }
   .section2 h1 {
     font-size: 2.5rem;
-    margin: 4rem 0 2rem 0; /* Oprava gigantických negatívnych marginov, ktoré rozbíjajú mobil */
+    margin: 4rem 0 2rem 0;
   }
 }
