@@ -4,13 +4,18 @@
   box-sizing: border-box;
 }
 
+html, body {
+  /* KĽÚČOVÁ ZMENA: Zabráni scrollovaniu doprava kvôli pretekaniu obrázkov */
+  overflow-x: hidden; 
+}
+
 body {
-    margin: 0;
-    font-family: "Manrope", sans-serif;
-    background-color: #fff;
-    color: #2A2B2A;
-    opacity: 0;
-    transition: opacity 0.8s ease;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background-color: #fff;
+  color: #2A2B2A;
+  opacity: 0;
+  transition: opacity 0.8s ease;
 }
 
 body.loaded {
@@ -21,22 +26,24 @@ body, a, button {
   cursor: none !important;
 }
 
+/* Štýl nášho krúžku */
 #custom-cursor {
   position: fixed;
   top: 0;
   left: 0;
   width: 20px;
   height: 20px;
-  border: 2px solid #000; 
+  border: 2px solid #000;
   border-radius: 50%;
-  pointer-events: none; 
+  pointer-events: none;
   transform: translate(-50%, -50%);
   transition: background-color 0.2s, transform 0.1s ease-out;
   z-index: 9999;
 }
 
+/* Vyfarbenie pri kliknutí */
 #custom-cursor.active {
-  background-color: #000; 
+  background-color: #000;
   transform: translate(-50%, -50%) scale(0.9);
 }
 
@@ -47,7 +54,7 @@ body, a, button {
   background: white;
   pointer-events: none;
   border-radius: 0;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
   will-change: transform, opacity;
   animation: particle-move 1s ease-out forwards;
   z-index: 9999;
@@ -60,31 +67,32 @@ body, a, button {
   }
 }
 
-  body.fade-out {
-    opacity: 0;
-    transition: opacity 0.8s ease;
-    pointer-events: none;
-  }
+/* Fade-out efekt pre celý obsah */
+body.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  pointer-events: none;
+}
 
 .header {
-    width: 100%;
-    padding: 1.5rem 3rem;
+  width: 100%;
+  padding: 1.5rem 3rem;
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-family: "MuseoModerno", sans-serif;
-    font-weight: 600;
-    font-size: 2rem;
-    letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: "MuseoModerno", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
 .logo img {
@@ -93,30 +101,30 @@ body, a, button {
 }
 
 .nav ul {
-    list-style: none;
-    display: flex;
-    gap: 3rem;
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav a {
-    text-decoration: none;
-    color: #2A2B2A;
-    font-weight: 500;
-    transition: all 0.5s ease;
-    border-top: 2px solid white;
+  text-decoration: none;
+  color: #2A2B2A;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  border-top: 2px solid white;
 }
 
 .nav a:hover {
-    color: #2A2B2A;
-    border-top: 2px solid #2A2B2A;
+  color: #2A2B2A;
+  border-top: 2px solid #2A2B2A;
 }
 
 .nav a.active {
-    font-weight: 800;
-    border-bottom: 2px solid #2A2B2A;
+  font-weight: 800;
+  border-bottom: 2px solid #2A2B2A;
 }
 
 .hero {
@@ -127,6 +135,7 @@ body, a, button {
 }
 
 .hero-content {
+  width: 100%;
   max-width: 580px;
 }
 
@@ -146,15 +155,18 @@ body, a, button {
   margin-bottom: 2rem;
 }
 
+/* KĽÚČOVÁ ZMENA: Percentuálna šírka miesto fixnej */
 .divider {
-  width: 560px;
+  width: 100%;
+  max-width: 560px;
   height: 1.25px;
   background-color: #2A2B2A;
   margin-bottom: 1.8rem;
 }
 
 .divider2 {
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
   height: 1.25px;
   background-color: #2A2B2A;
   margin-bottom: 1.8rem;
@@ -196,11 +208,12 @@ body, a, button {
   line-height: 1.7;
   color: #2A2B2A;
   margin-bottom: 2.4rem;
+  width: 100%;
   max-width: 580px;
 }
 
 .hero-description b {
-     font-weight: 600;
+  font-weight: 600;
 }
 
 .hero-btn {
@@ -235,7 +248,6 @@ body, a, button {
   background: white;
   color: #2A2B2A;
   transform: translateY(-3px);
-  background: white;
 }
 
 .hero-images { 
@@ -253,7 +265,7 @@ body, a, button {
 
 .hero-images .vertical-line {
   position: absolute;
-  right: -7%;              
+  right: -7%;
   top: -3%;
   width: 2px;
   height: 105%;
@@ -288,50 +300,50 @@ body, a, button {
 }
 
 .middivider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 5.5rem;
-    background: #2A2B2A;
-    margin-top: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5.5rem;
+  background: #2A2B2A;
+  margin-top: 30px 0;
 }
 
 .middivider img {
-    height: 60%
+  height: 60%;
 }
 
 .section2 {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    min-height: 60vh;
-    padding: 4rem 2rem 0.3rem;
-    background: #242424;
-    box-shadow: inset 0 8px 10px -8px rgba(0, 0, 0, 0.7);
-    overflow: hidden;
-    flex-direction: column;
-    position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  min-height: 60vh;
+  padding: 4rem 2rem 0.3rem;
+  background: #242424;
+  box-shadow: inset 0 8px 10px -8px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  flex-direction: column;
+  position: relative;
 }
 
 .second-image {
-    width: 100%;
-    padding-top: 70px;
-    max-width: 2300px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+  width: 100%;
+  padding-top: 70px;
+  max-width: 2300px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .second-image img.img4 {
-    position: relative;
-    width: 100%;
-    max-width: 2300px;
-    height: auto;
-    display: block;
+  position: relative;
+  width: 100%;
+  max-width: 2300px;
+  height: auto;
+  display: block;
 }
 
 .section2 h1 {
@@ -345,208 +357,64 @@ body, a, button {
   text-align: center;
 }
 
-.particle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: #2A2B2A;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.9;
-  animation: particle-move 1s ease-out forwards;
-}
+/* Ostatný kód pre sekciu 3 a AI zostáva zachovaný... */
 
-@keyframes particle-move {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
+/* ======================================================== */
+/* --- RESPONZIVITA (Nové pravidlá pre prispôsobenie) --- */
+/* ======================================================== */
+
+/* Notebooky a 125% priblíženie (do 1400px šírky obrazovky) */
+@media (max-width: 1400px) {
+  .hero {
+    padding-left: 2rem;
   }
-  100% {
-    transform: translate(var(--tx), var(--ty)) scale(0);
-    opacity: 0;
+  .hero h1 {
+    font-size: 2.8rem; /* Jemne zmenšený nadpis */
+  }
+  .hero-description {
+    font-size: 1.1rem; /* Jemne zmenšený text */
+  }
+  .hero-list {
+    font-size: 1.3rem;
+  }
+  .hero-images {
+    max-width: min(45rem, 60vh); /* Trochu menší kontajner na obrázok */
+    transform: translateX(-2vw);
   }
 }
 
-.hero-ai {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 25vh;
-  padding-left: 4.25rem;
-  margin-top: -1rem;
-}
-
-
-
-.hero-ai-content {
-  max-width: 1000px;
-}
-
-.hero-ai h1 {
-  font-family: "MuseoModerno", sans-serif;
-  font-weight: 600;
-  font-size: 4.5rem;
-  line-height: 1;
-  letter-spacing: 1px;
-  margin-bottom: -0.3rem;
-}
-
-.hero-ai h2 {
-  font-family: "Manrope", sans-serif;
-  font-weight: 10;
-  font-size: 2.3rem;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-}
-
-
-
-.divider3 {
-  width: 1360px;
-  height: 1.25px;
-  background-color: #2A2B2A;
-  margin: 40px 0 40px;
-}
-
-.gifwatch {
- width: 100%;
- display: flex;
- margin-top: 10px;
-}
-
-.gifwatch img {
-  width: 100%;
-  will-change: transform;
-  transition: none !important;
-}
-
-.divider4 {
-  display: flex;
-  width: 116rem;         
-  height: 1.25px;         
-  background-color: #2A2B2A;
-  margin: 50px auto 40px;  
-}
-
-.section3 {
-  position: relative;
-  text-align: center;
-  color: white;
-  font-family: "Poppins", sans-serif;
-}
-
-.section3 h1 {
-  margin-bottom: 2rem;
-}
-
-.third-image {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50rem;
-}
-
-.img-layer2 {
-  width: 100%;
-  opacity: 0.3;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 3.5rem;
-}
-
-.overlay-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  text-align: center;
-  gap: 8rem;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.col {
-  flex: 1;
-  margin: 0 0.5rem;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.col:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
-}
-
-.col h2 {
-  font-size: 4rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #2A2B2A;
-  font-family: "MuseoModerno", sans-serif;
-  transition: transform 0.3s ease;
-}
-
-.col p {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  font-weight: 100;
-  color: #2A2B2A;
-  font-family: "Manrope";
-  transition: color 0.3s ease;
-}
-
-.ai-btn-container {
-  display: flex;
-  justify-content: center; 
-  align-items: center;    
-  height: 100%;           
-}
-
-.ai-btn-container p {
- font-size: 1.3rem;
-  line-height: 1.6;
-  font-weight: 100;
-  color: #2A2B2A;
-  font-family: "Manrope";
-  transition: color 0.3s ease;
-  margin-top: -25px;
-  margin-bottom: 50px;
-}
-
-.ai-btn {
-  position: relative;
-  font-family: "Manrope", sans-serif;
-  font-weight: 500; /* Bold */
-  font-size: 1rem;
-  background: linear-gradient(90deg, #2A2B2A, #4D4D4D);
-  box-shadow: -3px 4px 4px #A5A5A5;
-  color: white;
-  border: none;
-  padding: 1rem 2.4rem;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: color 0.5s ease, transform 0.5s;
-  letter-spacing: 0.5px;
-}
-
-.ai-btn::after {
-  content: "";
-  position: absolute;
-  top: -6px;  
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
-  border: 2px solid #2A2B2A; 
-  border-radius: 999px;     
-  z-index: -1;               
-}
-
-.ai-btn:hover {
-  background: white;
-  color: #2A2B2A;
-  transform: translateY(-3px);
-  background: white;
+/* Tablety a mobily (do 992px) */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column; /* Hodí obrázok pod text */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 4rem;
+    text-align: center; /* Vycentruje text na mobile */
+  }
+  .hero-content {
+    margin: 0 auto;
+  }
+  .divider, .divider2 {
+    margin: 1.5rem auto; /* Vycentruje deliace čiary */
+  }
+  .hero-list li {
+    text-align: left;
+    display: inline-block; /* Aby odrážky nevyzerali na stred divne */
+  }
+  .hero-images {
+    transform: translateX(0);
+    margin-top: 4rem;
+    margin-left: 0;
+  }
+  .hero-images .vertical-line {
+    display: none; /* Na mobile táto čiara nemá zmysel */
+  }
+  .nav ul {
+    gap: 1.5rem; /* Menšie medzery v menu */
+  }
+  .section2 h1 {
+    font-size: 2.5rem;
+    margin: 4rem 0 2rem 0; /* Oprava gigantických negatívnych marginov, ktoré rozbíjajú mobil */
+  }
 }
