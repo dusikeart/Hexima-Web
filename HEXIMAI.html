@@ -137,7 +137,6 @@
       if (cursor) cursor.classList.remove('active');
     });
 
-    // --- UPRAVENÁ LOGIKA PRE SPLINE SCÉNU (KLIKANIE) ---
     const splineContainer = document.getElementById('spline-container');
     const uiElements = [
       document.getElementById('ui-0'),
@@ -149,23 +148,17 @@
 
     let currentClickIndex = 0;
 
-    // Inicializácia - zobrazenie prvého UI elementu
     if (uiElements[0]) uiElements[0].classList.add('active');
 
     if (splineContainer) {
-      // Odstránený 'wheel' event a pridaný 'click' event
       splineContainer.addEventListener('click', () => {
         
         currentClickIndex++;
 
-        // Ak dosiahneme koniec poľa, vrátime sa na začiatok (Loop).
-        // Ak chceš aby to na poslednom kroku ostalo stáť, zmeň to na: 
-        // if (currentClickIndex >= uiElements.length) currentClickIndex = uiElements.length - 1;
         if (currentClickIndex >= uiElements.length) {
           currentClickIndex = 0; 
         }
 
-        // Aktualizácia UI tried
         uiElements.forEach((el, index) => {
           if (el) {
             if (index === currentClickIndex) {
