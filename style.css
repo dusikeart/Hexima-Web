@@ -4,13 +4,17 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden; /* Poistka proti pretekaniu do šírky */
+}
+
 body {
-    margin: 0;
-    font-family: "Manrope", sans-serif;
-    background-color: #fff;
-    color: #2A2B2A;
-    opacity: 0;
-    transition: opacity 0.8s ease;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background-color: #fff;
+  color: #2A2B2A;
+  opacity: 0;
+  transition: opacity 0.8s ease;
 }
 
 body.loaded {
@@ -21,6 +25,7 @@ body, a, button, iframe, spline-viewer {
   cursor: none !important;
 }
 
+/* ----- CUSTOM CURSOR ----- */
 #custom-cursor {
   position: fixed;
   top: 0;
@@ -66,25 +71,26 @@ body.fade-out {
   pointer-events: none;
 }
 
+/* ----- HEADER & NAV ----- */
 .header {
-    width: 100%;
-    padding: 1.5rem 3rem;
+  width: 100%;
+  padding: 1.5rem 3rem;
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-family: "MuseoModerno", sans-serif;
-    font-weight: 600;
-    font-size: 2rem;
-    letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: "MuseoModerno", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
 .logo img {
@@ -93,35 +99,36 @@ body.fade-out {
 }
 
 .nav ul {
-    list-style: none;
-    display: flex;
-    gap: 3rem;
-    font-size: 1rem;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav a {
-    text-decoration: none;
-    color: #2A2B2A;
-    font-weight: 500;
-    transition: all 0.5s ease;
-    border-top: 2px solid white;
+  text-decoration: none;
+  color: #2A2B2A;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  border-top: 2px solid white;
 }
 
 .nav a:hover {
-    color: #2A2B2A;
-    border-top: 2px solid #2A2B2A;
+  color: #2A2B2A;
+  border-top: 2px solid #2A2B2A;
 }
 
 .nav a.active {
-    font-weight: 800;
-    border-bottom: 2px solid #2A2B2A;
+  font-weight: 800;
+  border-bottom: 2px solid #2A2B2A;
 }
 
+/* ----- SPLINE SEKČIA S VIEWEROM ----- */
 .spline-wrapper {
   width: 100%;
-  height: 85vh;
+  height: 85vh; /* Pôvodná veľkosť pre desktop */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -153,6 +160,7 @@ spline-viewer {
   border-radius: 4px;
 }
 
+/* ----- UI TEXTY A TECH HUD EFEKTY ----- */
 .spline-ui {
   position: absolute;
   top: 50%;
@@ -162,7 +170,7 @@ spline-viewer {
   opacity: 0;
   pointer-events: none; 
   transition: opacity 0.5s ease, transform 0.5s ease;
-  z-index: 15;
+  z-index: 15; 
 }
 
 .spline-ui.active {
@@ -179,13 +187,13 @@ spline-viewer {
   font-weight: 600;
   font-size: 1.2rem;
   letter-spacing: 2px;
-  color: #ffffff;
+  color: #ffffff; 
 }
 
 .scroll-dot {
   width: 12px;
   height: 12px;
-  background-color: #ffffff;
+  background-color: #ffffff; 
   border-radius: 50%;
   animation: bounceDot 1.5s infinite ease-in-out;
 }
@@ -198,7 +206,7 @@ spline-viewer {
 .tech-hud {
   padding: 24px 32px;
   background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px); 
   border: 1px solid rgba(42, 43, 42, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
@@ -254,13 +262,13 @@ spline-viewer {
   margin-top: 10px;
 }
 
+/* ----- HERO AI SEKČIA ----- */
 .hero-ai {
  display: flex;
   align-items: center;
   justify-content: flex-start;
   min-height: 25vh;
-  padding-left: 4.25rem;
-  margin-top: -1rem;
+  padding: 2rem 4.25rem;
 }
 
 .hero-ai-content {
@@ -271,42 +279,23 @@ spline-viewer {
   font-family: "MuseoModerno", sans-serif;
   font-weight: 600; 
   font-size: 4.5rem;
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: 1px;
-  margin-bottom: -0.3rem;
 }
 
 .hero-ai h2 {
   font-family: "Manrope", sans-serif;
-  font-weight: 10;
+  font-weight: 300;
   font-size: 2.3rem;
-  margin-bottom: 2rem;
   margin-top: 1rem;
 }
 
-.divider3 {
-  width: 1360px;
-  height: 1.25px;
-  background-color: #2A2B2A;
-  margin: 40px 0 40px;
-}
-
-.divider4 {
-  display: flex;
-  width: 116rem;           
-  height: 1.25px;          
-  background-color: #2A2B2A;
-  margin: 50px auto 40px;  
-}
-
+/* ----- SEKČIA 3 (ŠTYRI STĹPCE) ----- */
 .section3 {
   position: relative;
   text-align: center;
-  color: white;
-}
-
-.section3 h1 {
-  margin-bottom: 2rem;
+  color: #2A2B2A;
+  padding: 4rem 2rem;
 }
 
 .third-image {
@@ -314,39 +303,42 @@ spline-viewer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50rem;
+  min-height: 35rem; /* Upravené z fixného height */
+  overflow: hidden;
 }
 
 .img-layer2 {
-  width: 30%;
-  opacity: 0.2;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 3.5rem;
-}
-
-.overlay-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 40%;
+  min-width: 300px;
+  opacity: 0.1;
+  pointer-events: none; /* Aby obrázok neblokoval klikanie na text */
+  z-index: 1;
+}
+
+.overlay-text {
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1400px;
+  gap: 4rem; /* Zmenšené z extrémnych 8rem */
+  z-index: 2;
   text-align: center;
-  gap: 8rem;
 }
 
 .col {
   flex: 1;
-  margin: 0 0.5rem;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .col:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
 }
 
 .col h2 {
@@ -358,28 +350,35 @@ spline-viewer {
 }
 
 .col p {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 1.6;
-  font-weight: 100;
+  font-weight: 400;
   color: #2A2B2A;
   font-family: "Manrope";
+}
+
+/* ----- SPODNÁ ČASŤ A TLAČIDLÁ ----- */
+/* OPRAVENÁ LINE - už nebude pretekať do strán */
+.divider4 {
+  width: 90%; 
+  max-width: 1200px;
+  height: 2px;
+  background-color: #2A2B2A;
+  margin: 50px auto 40px;  
 }
 
 .ai-btn-container {
   display: flex;
   justify-content: center; 
   align-items: center;    
-  height: 100%;            
+  margin-bottom: 2rem;
 }
 
 .ai-btn-container p {
- font-size: 1.3rem;
-  line-height: 1.6;
-  font-weight: 100;
-  color: #2A2B2A;
-  font-family: "Manrope";
-  margin-top: -25px;
-  margin-bottom: 50px;
+ font-size: 1.1rem;
+ font-weight: 400;
+ color: #2A2B2A;
+ margin: 0;
 }
 
 .ai-btn {
@@ -414,4 +413,96 @@ spline-viewer {
   background: white;
   color: #2A2B2A;
   transform: translateY(-3px);
+}
+
+/* ====================================================
+   RESPONZIVITA (MEDIA QUERIES)
+   ==================================================== */
+
+/* Pre tablety a menšie laptopy (do 1024px) */
+@media (max-width: 1024px) {
+  .spline-wrapper {
+    height: 65vh; /* Zmenšenie Spline wrapperu */
+  }
+  .tech-hud {
+    padding: 18px 24px;
+  }
+  .hud-text {
+    font-size: 2rem;
+    max-width: 300px;
+  }
+  .hud-text2 {
+    font-size: 1.1rem;
+    max-width: 300px;
+  }
+  
+  .hero-ai h1 {
+    font-size: 3.5rem;
+  }
+  .hero-ai h2 {
+    font-size: 1.8rem;
+  }
+  
+  .overlay-text {
+    gap: 2rem;
+  }
+  .col h2 {
+    font-size: 3rem;
+  }
+  .col p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Pre mobilné zariadenia (do 768px) */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+  .nav ul {
+    gap: 1.5rem;
+  }
+  
+  .spline-wrapper {
+    height: 50vh; /* Na mobiloch ešte menšia scéna */
+  }
+  .tech-hud {
+    padding: 15px;
+    /* Centrovanie HUD prvkov na mobile aby nevyliezali zo strán */
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+  }
+  .hud-text {
+    font-size: 1.8rem;
+    max-width: 100%;
+  }
+  .hud-text2 {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  
+  .hero-ai {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    justify-content: center;
+  }
+  .hero-ai h1 {
+    font-size: 2.8rem;
+  }
+  .hero-ai h2 {
+    font-size: 1.4rem;
+  }
+
+  /* Zoskupenie 4 stĺpcov pod seba */
+  .overlay-text {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .third-image {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
