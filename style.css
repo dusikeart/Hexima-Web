@@ -5,7 +5,7 @@
 }
 
 html, body {
-  overflow-x: hidden; /* Poistka proti pretekaniu do šírky */
+  overflow-x: hidden;
 }
 
 body {
@@ -25,7 +25,6 @@ body, a, button, iframe, spline-viewer {
   cursor: none !important;
 }
 
-/* ----- CUSTOM CURSOR ----- */
 #custom-cursor {
   position: fixed;
   top: 0;
@@ -71,7 +70,6 @@ body.fade-out {
   pointer-events: none;
 }
 
-/* ----- HEADER & NAV ----- */
 .header {
   width: 100%;
   padding: 1.5rem 3rem;
@@ -125,10 +123,9 @@ body.fade-out {
   border-bottom: 2px solid #2A2B2A;
 }
 
-/* ----- SPLINE SEKČIA S VIEWEROM ----- */
 .spline-wrapper {
   width: 100%;
-  height: 85vh; /* Pôvodná veľkosť pre desktop */
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -160,7 +157,6 @@ spline-viewer {
   border-radius: 4px;
 }
 
-/* ----- UI TEXTY A TECH HUD EFEKTY ----- */
 .spline-ui {
   position: absolute;
   top: 50%;
@@ -262,7 +258,6 @@ spline-viewer {
   margin-top: 10px;
 }
 
-/* ----- HERO AI SEKČIA ----- */
 .hero-ai {
  display: flex;
   align-items: center;
@@ -290,7 +285,6 @@ spline-viewer {
   margin-top: 1rem;
 }
 
-/* ----- SEKČIA 3 (ŠTYRI STĹPCE) ----- */
 .section3 {
   position: relative;
   text-align: center;
@@ -303,7 +297,7 @@ spline-viewer {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 35rem; /* Upravené z fixného height */
+  min-height: 35rem;
   overflow: hidden;
 }
 
@@ -315,7 +309,7 @@ spline-viewer {
   width: 40%;
   min-width: 300px;
   opacity: 0.1;
-  pointer-events: none; /* Aby obrázok neblokoval klikanie na text */
+  pointer-events: none;
   z-index: 1;
 }
 
@@ -326,7 +320,7 @@ spline-viewer {
   align-items: flex-start;
   width: 100%;
   max-width: 1400px;
-  gap: 4rem; /* Zmenšené z extrémnych 8rem */
+  gap: 4rem;
   z-index: 2;
   text-align: center;
 }
@@ -357,8 +351,6 @@ spline-viewer {
   font-family: "Manrope";
 }
 
-/* ----- SPODNÁ ČASŤ A TLAČIDLÁ ----- */
-/* OPRAVENÁ LINE - už nebude pretekať do strán */
 .divider4 {
   width: 90%; 
   max-width: 1200px;
@@ -415,14 +407,9 @@ spline-viewer {
   transform: translateY(-3px);
 }
 
-/* ====================================================
-   RESPONZIVITA (MEDIA QUERIES)
-   ==================================================== */
-
-/* Pre tablety a menšie laptopy (do 1024px) */
 @media (max-width: 1024px) {
   .spline-wrapper {
-    height: 65vh; /* Zmenšenie Spline wrapperu */
+    height: 65vh; 
   }
   .tech-hud {
     padding: 18px 24px;
@@ -454,7 +441,6 @@ spline-viewer {
   }
 }
 
-/* Pre mobilné zariadenia (do 768px) */
 @media (max-width: 768px) {
   .header {
     padding: 1rem;
@@ -464,11 +450,10 @@ spline-viewer {
   }
   
   .spline-wrapper {
-    height: 50vh; /* Na mobiloch ešte menšia scéna */
+    height: 50vh;
   }
   .tech-hud {
     padding: 15px;
-    /* Centrovanie HUD prvkov na mobile aby nevyliezali zo strán */
     left: 50% !important;
     right: auto !important;
     transform: translate(-50%, -50%);
@@ -496,7 +481,6 @@ spline-viewer {
     font-size: 1.4rem;
   }
 
-  /* Zoskupenie 4 stĺpcov pod seba */
   .overlay-text {
     flex-direction: column;
     gap: 3rem;
